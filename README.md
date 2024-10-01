@@ -1,73 +1,101 @@
-# EX-01<p align="center"> MDP REPRESENTATION </p>
+# MDP REPRESENTATION
 
 ## AIM:
 To represent a Markov Decision Process(MDP) problem in the following ways.
-  1. Text representation
-  2. Graphical representation
-  3. Python - Dictonary representation
+
+1. Text representation
+2. Graphical representation
+3. Python - Dictonary representation
 
 ## PROBLEM STATEMENT:
 
-### Problem Description:
-The problem is to develop a Reinforcement Learning model for product detection in a manufacturing factory. The model should determine whether a product is ready to be exported or faulty based on its features. The goal is to optimize the production process and reduce the number of faulty products while maximizing the number of products ready for export.
+### Problem Description
+Consider a Situation Lizard(AGENT) crawling on the wall.The goal of lizard is to catch the insect which is on the same wall.
 
-### State Space:
-{F,J,E} -> {0,1,2}
+### State Space
+{B,A,C,D,E,F,G}->{0,1,2,3,4,5,6}
 
-where,
-- F -> Faulty
-- J-Juction(decision making state)
-- E -> Export
+These are state to the frog to reach the goal.
 
-### Sample State:
-Dimensions: (Length, Width, Height) = (10 cm, 5 cm, 2 cm).
-Weight: 100 grams.
-Color: Blue.
+### Sample State
+{2,3}
 
-### Action Space:
-{F,E} -> {0,1}
- where,
-  "E->Export" ,
-  "F->Mark as Faulty"
+### Action Space
+{0}->LEFT
 
-### Sample Action:
-E-> 1<br>
-product is ready for Export.
+{1}->UP
 
-### Reward Function:
-R = { +10 for correctly exporting a ready product,
--10 for exporting a faulty product}
+{2}->RIGHT
 
-### Graphical Representation:
+### Sample Action
+{1}->UP
 
-![rl 1](https://github.com/user-attachments/assets/32d1250b-10a0-4316-8f4a-ecb322034880)
+{2}->RIGHT
+
+### Reward Function
+ To reach Goal->+1(REWARD)
+
+ otherwise->0
+
+### Graphical Representation
+![RL_1 1](https://github.com/user-attachments/assets/5c3e5001-8c7b-4e62-a9ad-3b0793cf35c6)
+
+
+#### DEVELOPED BY : R.THIVAKAR
+#### REGISTER NO : 212222240109
 
 ## PYTHON REPRESENTATION:
-```py
+```python
 P = {
-    0:{
-        0: [(1.0,0,0.0,True)],
-        1: [(1.0,0,0.0,True)]
+    
+    0 : {
+        0 : [(1.0 , 0 , 0.0 , False)],
+        1 : [(1.0 , 0 , 0.0 , False)],
+        2 : [(0.7 , 1 , 0.0 , False), (0.3 , 0 , 0.0 , False)]
     },
-    1:{
-        0: [(1.0,0,0.0,True)],
-        1: [(1.0,2,1.0,True)]
+
+    1 : {
+        0 : [(0.7 , 0 , 0.0 , False),(0.3 , 1 , 0.0 , False)],
+        1 : [(0.7 , 4 , 0.0 , False),(0.3 , 1 , 0.0 , False)],
+        2 : [(0.7 , 2 , 0.0 , False),(0.3 , 1 , 0.0 , False)]
     },
-    2:{
-        0: [(1.0,2,0.0,True)],
-        1: [(1.0,2,0.0,True)]
-    }
+
+    2 : {
+        0 : [(0.7 , 1 , 0.0 , False),(0.3 , 2 , 0.0 , False)],
+        1 : [(1.0 , 2 , 0.0 , False)],
+        2 : [(1.0 , 2 , 0.0 , False)]
+    },
+
+    3 : {
+        0 : [(1.0 , 3 , 0.0 , False)],
+        1 : [(1.0 , 3 , 0.0 , False)],
+        2 : [(0.7 , 4 , 0.0 , False),(0.3 , 3 , 0.0 , False)]
+    },
+    4 : {
+        0 : [(0.7 , 3 , 0.0 , False),(0.3 , 4 , 0.0 , False)],
+        1 : [(0.7 , 6 , 1.0 , True),(0.3 , 4 , 0.0 , False)],
+        2 : [(0.7 , 5 , 0.0 , False),(0.3 , 4 , 0.0 , False)]
+    },
+    5 : {
+        0 : [(0.7 , 4 , 0.0 , False),(0.3 , 5 , 0.0 , False)],
+        1 : [(1.0 , 5 , 0.0 , False)],
+        2 : [(1.0 , 5 , 0.0 , False)]
+    },
+    6 : {
+        0 : [(1.0 , 6 , 0.0 , True)],
+        1 : [(1.0 , 6 , 0.0 , True)],
+        2 : [(1.0 , 6 , 0.0 , True)]
+    },
 }
-```
-## OUTPUT:
-```
-{0: {0: [(1.0, 0, 0.0, True)], 1: [(1.0, 0, 0.0, True)]},
- 1: {0: [(1.0, 0, 0.0, True)], 1: [(1.0, 2, 1.0, True)]},
- 2: {0: [(1.0, 2, 0.0, True)], 1: [(1.0, 2, 0.0, True)]}}
+
+P
+
 ```
 
+## OUTPUT:
+![RL_1 2](https://github.com/user-attachments/assets/a2c79342-27b0-4fa9-98b2-5639b9c543bb)
+
+
 ## RESULT:
-Thus the given Markov Decision Process(MDP) problem is represented in the following ways.
-  1. Text representation
-  2. Graphical representation
-  3. Python - Dictonary representation
+Thus a real world problem is represented as Markov Decision Problem in the following ways successfully:
+Graphical Representation and Python Representation.
